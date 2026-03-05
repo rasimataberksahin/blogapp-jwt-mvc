@@ -1,0 +1,15 @@
+﻿@using BlogApp.Mvc
+@using BlogApp.Mvc.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@* 
+Bu dosya "global using" gibi düşün.
+
+- @using BlogApp.Mvc.Models
+  View'larda LoginViewModel, NewBlogViewModel vs yazabilmemizi sağlar.
+  (Yoksa tam namespace yazman gerekir)
+
+- @addTagHelper ...
+  asp-controller, asp-action, asp-for, asp-validation-for gibi şeyleri aktif eder.
+  TagHelper olmadan bu asp-... attribute'ları düz HTML gibi kalır, routing/binding çalışmaz.
+*@

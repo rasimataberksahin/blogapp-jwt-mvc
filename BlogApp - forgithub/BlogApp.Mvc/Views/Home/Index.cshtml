@@ -1,0 +1,66 @@
+﻿@model List<BlogTableViewModel>
+
+<div class="container py-4">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <div>
+            <h1 class="h3 mb-1">Blogs</h1>
+            <div class="text-muted small">Latest posts</div>
+        </div>
+
+        <a asp-controller="Home" asp-action="AddBlog" class="btn btn-primary">
+            Add Blog
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 72px;">#</th>
+                            <th>Title</th>
+                            <th style="width: 140px;">Size</th>
+                            <th style="width: 200px;">Created At</th>
+                            <th style="width: 140px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model is null || Model.Count == 0)
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">
+                                    No posts yet.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                var blog = Model[i];
+
+                                <tr>
+                                    <td class="text-muted">@(i + 1)</td>
+                                    <td>
+                                        <div class="fw-semibold">@blog.Title</div>
+                                    </td>
+                                    <td class="text-muted">@blog.Size</td>
+                                    <td class="text-muted">@blog.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                                    <td class="text-end">
+                                        <a asp-controller="Home"
+                                           asp-action="Detail"
+                                           asp-route-id="@blog.Id"
+                                           class="btn btn-outline-primary btn-sm">
+                                            Details
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@using BlogApp.Data.Entities
+@model BlogPostEntity
+
+<div class="container py-4" style="max-width: 880px;">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">Back</a>
+        <div class="text-muted small">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <h1 class="h3 mb-3">@Model.Title</h1>
+            <hr class="my-3" />
+            <div class="fs-6">
+                @Html.Raw(Model.Content)
+            </div>
+        </div>
+    </div>
+</div>

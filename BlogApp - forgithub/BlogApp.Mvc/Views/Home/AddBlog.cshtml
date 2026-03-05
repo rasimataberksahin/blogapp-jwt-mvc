@@ -1,0 +1,32 @@
+﻿@model NewBlogViewModel
+
+<div class="container py-4" style="max-width: 720px;">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="m-0">Add Blog</h2>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-sm">Back</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <form asp-controller="Home" asp-action="AddBlog" method="post">
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input asp-for="Title" class="form-control" placeholder="Short and clear title" />
+                    <div class="form-text">Max 50 characters.</div>
+                    <span asp-validation-for="Title" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Content" class="form-label">Content</label>
+                    <textarea asp-for="Content" class="form-control" rows="8" placeholder="Write your post..."></textarea>
+                    <span asp-validation-for="Content" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-light">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
