@@ -1,5 +1,4 @@
-# BlogApp MVC - JWT Authentication
-
+## ASP.NET Core MVC JWT Blog App
 This project is a simple blog application built with **ASP.NET Core MVC** and **Entity Framework Core**.
 
 The goal of this project is to understand how **JWT authentication works in an MVC application**.
